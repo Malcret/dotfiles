@@ -1,0 +1,17 @@
+CompileFlags:
+  Add: [-Wall, -Wextras]
+Diagnostics:
+  ClangTidy:
+    Add:
+      - bugprone-*
+      - cert-*
+      - concurrency-*
+      - modernize-*
+      - mpi-*
+      - performance-*
+    Remove:
+      - cert-dcl37-c
+      - cert-dcl51-cpp
+    FastCheckFilter: Strict
+Hover:
+  ShowAKA: true

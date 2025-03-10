@@ -1,0 +1,137 @@
+@import "custom.css";
+
+* {
+  font-family:
+    JetbrainsMono Nerd Font,
+    Noto Sans Mono CJK;
+  font-size: 15px;
+  min-height: 0;
+}
+
+#waybar {
+  background: transparent;
+  color: @text;
+}
+
+#workspaces {
+  border-radius: 20px;
+  margin: 5px;
+  background-color: @crust;
+}
+
+#workspaces button {
+  color: @maroon;
+  padding: 0px 5px;
+}
+
+#workspaces button.active {
+  color: @sky;
+}
+
+#workspaces button:hover {
+  color: @sapphire;
+}
+
+#custom-launcher,
+#cpu,
+#memory,
+#disk,
+#mpris,
+#tray,
+#custom-notification,
+#custom-updates,
+#language,
+#backlight,
+#battery,
+#clock,
+#pulseaudio,
+#custom-lock,
+#custom-power {
+  padding: 5px 10px;
+  margin: 5px 0px;
+  background-color: @crust;
+}
+
+#custom-launcher {
+  color: #1793d1;
+  font-size: 25px;
+  padding: 0px 15px 0px 6px;
+  margin-left: 5;
+  border-radius: 20px;
+}
+
+#cpu {
+  color: @mauve;
+  border-radius: 20px 0px 0px 20px;
+  margin-left: 5px;
+}
+
+#memory {
+  color: @pink;
+}
+
+#disk {
+  color: @flamingo;
+  border-radius: 0px 20px 20px 0px;
+  margin-right: 5px;
+}
+
+#mpris {
+  color: @green;
+  border-radius: 20px;
+}
+
+#tray {
+  margin-right: 5px;
+  border-radius: 20px;
+}
+
+#custom-notification {
+  color: @sky;
+  border-radius: 20px 0px 0px 20px;
+}
+
+#custom-updates {
+  color: @teal;
+}
+
+#language {
+  color: @green;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#pulseaudio {
+  color: @yellow;
+}
+
+#clock {
+  color: @peach;
+  margin-right: 5px;
+  border-radius: 0px 20px 20px 0px;
+}
+
+#custom-lock {
+  border-radius: 20px 0px 0px 20px;
+  color: @maroon;
+}
+
+#custom-power {
+  margin-right: 5px;
+  border-radius: 0px 20px 20px 0px;
+  color: @red;
+}
