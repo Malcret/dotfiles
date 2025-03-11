@@ -10,3 +10,4 @@ src() {
 src "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 src "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 src "/usr/share/zsh/plugins/zsh-autopair/autopair.zsh"
+src "/usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
