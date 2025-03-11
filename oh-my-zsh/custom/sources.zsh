@@ -1,11 +1,12 @@
-if [[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
-  . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
+src() {
+    local file=$1
+    if [ -f $file ]; then
+        . $file
+    else
+        echo "Failed to source '$file', file doesn't exist!"
+    fi
+}
 
-if [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-  . /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-if [[ -f /usr/share/zsh/pluginfs/zsh-autopair/autopair.zsh ]]; then
-  . /usr/share/zsh/plugins/zsh-autopair/autopair.zsh
-fi
+src "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+src "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+src "/usr/share/zsh/plugins/zsh-autopair/autopair.zsh"
