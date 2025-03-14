@@ -18,8 +18,8 @@ deploy() {
     fi
 }
 
-deploy "oh-my-zsh/custom"
 deploy "clang-format"
+deploy "zshrc"
 deploy "config/btop"
 deploy "config/clangd"
 deploy "config/electron-flags.conf"
@@ -28,6 +28,7 @@ deploy "config/hypr"
 deploy "config/kitty"
 deploy "config/lazygit"
 deploy "config/mpv"
+deploy "config/oh-my-zsh"
 deploy "config/rofi"
 deploy "config/spotify-player"
 deploy "config/swaync"
