@@ -1,5 +1,5 @@
 CompileFlags:
-  Add: [-Wall, -Wextras]
+  Add: [-Wall, -Wextras, -Wno-unused-function]
 Diagnostics:
   ClangTidy:
     Add:
@@ -10,6 +10,7 @@ Diagnostics:
       - mpi-*
       - performance-*
     Remove:
+      - bugprone-reserved-identifier
       - cert-dcl37-c
       - cert-dcl51-cpp
     FastCheckFilter: Strict
