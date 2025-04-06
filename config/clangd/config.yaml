@@ -11,6 +11,7 @@ Diagnostics:
       - performance-*
     Remove:
       - bugprone-reserved-identifier
+      - bugprone-easily-swappable-parameters
       - cert-dcl37-c
       - cert-dcl51-cpp
     FastCheckFilter: Strict
