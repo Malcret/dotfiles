@@ -1,5 +1,5 @@
 CompileFlags:
-  Add: [-Wall, -Wextras, -Winline, -Wno-unused-function, -pedantic]
+  Add: [-Wall, -Wextras, -Winline, -Wno-unused-function, -Wno-empty-translation-unit, -pedantic]
 Diagnostics:
   ClangTidy:
     Add:
