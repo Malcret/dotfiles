@@ -1,17 +1,21 @@
 BasedOnStyle: LLVM
-# If not 'None', when using initialization for an array of structs aligns the fields into columns.
+# If not `None`, when using initialization for an array of structs aligns the fields into columns.
 AlignArrayOfStructures: Right
 # Options for aligning backslashes in escaped newlines.
 AlignEscapedNewlines: LeftWithLastLine
 # AlignEscapedNewlines: DontAlign
 # Dependent on the value, while (true) { continue; } can be put on a single line.
 AllowShortBlocksOnASingleLine: Empty
+# If `true`, short case labels will be contracted to a single line.
+AllowShortCaseLabelsOnASingleLine: true
 # Allow short enums on a single line.
 AllowShortEnumsOnASingleLine: false
-# Dependent on the value, 'int f() { return 0; }' can be put on a single line.
+# Dependent on the value, `int f() { return 0; }` can be put on a single line.
 AllowShortFunctionsOnASingleLine: Empty
-# Dependent on the value, 'if (a) return;' can be put on a single line.
+# Dependent on the value, `if (a) return;` can be put on a single line.
 AllowShortIfStatementsOnASingleLine: WithoutElse
+# If `true`, `while (true) continue;` can be put on a single line.
+AllowShortLoopsOnASingleLine: true
 # The column limit. A column limit of 0 means that there is no column limit.
 ColumnLimit: 120
 # If true, format braced lists as best suited for C++11 braced lists.
