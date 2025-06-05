@@ -28,6 +28,7 @@ alias unlockpwd="su -c 'faillock --reset'"
 
 # Utils
 alias newterm='$TERMINAL -e' # exec command in new terminal
+alias vimcfg='tmp=$(pwd); cd $HOME/.config/nvim; vim .; cd $tpm'
 
 # Android
 alias adbrmpkg='adb shell pm uninstall -k --user 0'
