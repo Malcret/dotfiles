@@ -36,3 +36,6 @@ alias upoff='update && poweroff'
 
 # Android
 alias adbrmpkg='adb shell pm uninstall -k --user 0'
+
+# Games
+alias stellarisproton="STEAM_COMPAT_CLIENT_INSTALL_PATH=/home/malcret/.local/share/Steam STEAM_COMPAT_DATA_PATH=/media/Data-4TB/Games/other/stellaris/pfx /home/malcret/.local/share/lutris/runners/proton/ge-proton/proton"
