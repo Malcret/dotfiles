@@ -31,7 +31,7 @@ alias gitsignall="git rebase --exec 'git commit --amend --no-edit -S -n' --root 
 
 # Utils
 alias newterm='$TERMINAL -e' # exec command in new terminal
-alias vimcfg='tmp=$(pwd); cd $HOME/.config/nvim; vim .; cd $tpm'
+alias vimcfg='tmp=$(pwd); cd $HOME/.config/nvim; vim .; cd $tmp'
 
 # Android
 alias adbrmpkg='adb shell pm uninstall -k --user 0'
