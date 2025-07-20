@@ -5,6 +5,9 @@ export SUDO_EDIT=nvim
 # Pager
 export MANPAGER='nvim +Man!'
 
+# Vulkan
+export VULKAN_SDK="/usr/share/vulkan/"
+
 # Ollama
 export OLLAMA_MODELS=/media/Data-4TB/IT/AI/Ollama/Models
 
