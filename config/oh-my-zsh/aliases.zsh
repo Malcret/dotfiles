@@ -3,12 +3,12 @@ alias cat='bat --paging=never'
 alias ls='eza'
 
 # Package manager
-alias paru='paru --skipreview'
+alias paru='paru --skipreview --cleanafter'
 alias unusedpkg='paru -Qtdq'
 alias clearunusedpkg='if [ $(unusedpkg | wc -l) != 0 ]; then paru -Rcns $(unusedpkg) --noconfirm; fi; flatpak uninstall --unused -y'
 alias cleanpkgcache='sudo paccache -rk3; paru -Scc --noconfirm'
 alias cleanup='clearunusedpkg; cleanpkgcache'
-alias updatepkg='paru -Syu --noconfirm; flatpak update -y'
+alias updatepkg='paru -Syu --devel --noconfirm; flatpak update -y'
 alias update='updatepkg; cleanup'
 alias updatemirrors='tmpfile=$(mktemp); \
   sudo true;

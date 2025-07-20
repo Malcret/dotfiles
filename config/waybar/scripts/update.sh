@@ -4,13 +4,13 @@ updatefn() {
     status=0
 
     # Update pkg
-    paru -Syu --noconfirm --skipreview || status=1
+    paru -Syu --noconfirm --skipreview --cleanafter --devel || status=1
     flatpak update -y || status=1
 
     # Remove unused pkg
     if [ $(paru -Qtdq | wc -l) != 0 ]; then
         paru -Rcns $(paru -Qtdq) --noconfirm || status=1
-    fi 
+    fi
     flatpak uninstall --unused -y || status=1
 
     # Clear pkg cache
