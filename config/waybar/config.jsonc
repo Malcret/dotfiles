@@ -1,53 +1,24 @@
 {
   "layer": "top",
-  "modules-left": ["custom/launcher", "cpu", "memory", "disk", "mpris"],
-  "modules-center": ["hyprland/workspaces"],
+  // "modules-left": ["custom/launcher", "cpu", "memory", "disk", "mpris"],
+  "modules-left": ["clock", "hyprland/workspaces", "gamemode"],
+  // "modules-center": ["hyprland/workspaces"],
+  "modules-center": ["mpris"],
   "modules-right": [
     "tray",
     "custom/notification",
     "custom/updates",
-    "hyprland/language",
+    "wireplumber",
     "blacklight",
+    "bluetooth",
+    "network",
+    "disk",
+    "memory",
+    "cpu",
+    "temperature",
     "battery",
-    "pulseaudio",
-    "clock",
-    "custom/lock",
-    "custom/power",
+    "idle_inhibitor",
   ],
-
-  "pulseaudio": {
-    "tooltip": false,
-    "scroll-step": 5,
-    "format": "{icon} {volume}%",
-    "format-muted": "󰖁 {volume}%",
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "format-icons": {
-      "default": ["", "", ""],
-    },
-  },
-  "hyprland/workspaces": {
-    "all-outputs": true,
-    "on-click": "activate",
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1",
-  },
-  "hyprland/language": {
-    "format": " {}",
-    "format-fr": "fr",
-    "format-en": "en",
-  },
-  "network": {
-    "tooltip": false,
-    "format-wifi": " {essid}",
-    "format-ethernet": "",
-  },
-  "backlight": {
-    "tooltip": false,
-    "format": " {}%",
-    "interval": 1,
-    "on-scroll-up": "light -A 5",
-    "on-scroll-down": "light -U 5",
-  },
   "battery": {
     "states": {
       "good": 95,
@@ -60,9 +31,25 @@
     "format-alt": "{time} {icon}",
     "format-icons": ["", "", "", "", ""],
   },
-  "tray": {
-    "icon-size": 18,
-    "spacing": 10,
+  "blacklight": {
+    "tooltip": false,
+    "format": " {}%",
+    "interval": 1,
+    "on-scroll-up": "light -A 5",
+    "on-scroll-down": "light -U 5",
+  },
+  "bluetooth": {
+    "format-connected": "󰂱 {num_connections}",
+    "format-connected": "󰂱 {num_connections} 󰥉{device-battery-percentage}%",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲",
+    "format-on": "󰂯",
+    "on-click": "rfkill toggle bluetooth",
+    "on-click-right": "blueman-manager",
+    "tooltip-format": "{device_alias}",
+    "tooltip-format-connected": " {device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device-battery-percentage}%",
   },
   "clock": {
     "format": " {:%a, %d/%m/%Y, %H:%M}",
@@ -70,17 +57,37 @@
   },
   "cpu": {
     "interval": 15,
-    "format": " {}%",
-    "max-length": 10,
-  },
-  "memory": {
-    "interval": 30,
-    "format": " {}%",
+    "format": " {usage}%",
     "max-length": 10,
   },
   "disk": {
     "interval": 30,
     "format": "󰋊 {percentage_used}%",
+  },
+  "hyprland/language": {
+    "format": " {}",
+    "format-fr": "fr",
+    "format-en": "en",
+  },
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰒳",
+      "deactivated": "󰒲",
+    },
+    "tooltip-format-activated": " Idle inhibitor activated",
+    "tooltip-format-deactivated": " Idle inhibitor deactivated",
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {percentage}%",
+    "max-length": 10,
   },
   "mpris": {
     "format": "{player_icon} ⟩ {status_icon} {title} • {artist}",
@@ -92,6 +99,7 @@
       "spotify": "",
       "spotify_player": "",
       "vlc": "󰕼",
+      "chromium": "",
     },
     "status-icons": {
       "playing": "",
@@ -99,6 +107,51 @@
       "stopped": "",
     },
     "interval": 1,
+  },
+  "network": {
+    "tooltip": true,
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰈀",
+    "tooltip-format-ethernet": "{ifname} - {ipaddr}/{cidr} via {gwaddr}",
+    "tooltip-format-wifi": "{essid}:{ifname} {frequency}GHz - {ipaddr}/{cidr} via {gwaddr}",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "󰌙",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+  },
+  "pulseaudio": {
+    "tooltip": false,
+    "scroll-step": 5,
+    "format": "{icon} {volume}%",
+    "format-muted": "󰖁 {volume}%",
+    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pwvucontrol",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
+    "format-icons": {
+      "default": ["", "", ""],
+    },
+  },
+  "temperature": {
+    "hwmon-path": [
+      "/sys/devices/platform/asus-ec-sensors/hwmon/hwmon3/temp2_input",
+      "/sys/devices/platform/asus-ec-sensors/hwmon/hwmon4/temp2_input",
+    ],
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", "", "", ""],
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10,
+  },
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰖁 {volume}%",
+    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pwvucontrol",
+    "scroll-step": 1.0,
+    "format-icons": {
+      "default": ["", "", ""],
+    },
   },
   "custom/launcher": {
     "format": "",
@@ -110,18 +163,6 @@
     "format": "",
     "tooltip": false,
     "on-click": "hyprlock --grace 0 & disown",
-  },
-  "custom/power": {
-    "format": "",
-    "tooltip": false,
-    "on-click": "wlogout &",
-  },
-  "custom/updates": {
-    "format": "󰮯 {}",
-    "return-type": "json",
-    "exec-if": "which waybar-module-pacman-updates",
-    "exec": "waybar-module-pacman-updates  --interval-seconds 15 --network-interval-seconds 300",
-    "on-click": "hyprctl dispatch \"exec [float;size 800 600] $TERMINAL -e /home/$USER/.config/waybar/scripts/update.sh\"",
   },
   "custom/notification": {
     "tooltip": false,
@@ -142,5 +183,17 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true,
+  },
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "wlogout &",
+  },
+  "custom/updates": {
+    "format": "󰮯 {}",
+    "return-type": "json",
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates  --interval-seconds 15 --network-interval-seconds 300",
+    "on-click": "hyprctl dispatch \"exec [float;size 800 600] $TERMINAL -e /home/$USER/.config/waybar/scripts/update.sh\"",
   },
 }
