@@ -9,7 +9,7 @@
     "custom/notification",
     "custom/updates",
     "wireplumber",
-    "blacklight",
+    // "backlight",
     "bluetooth",
     "network",
     "disk",
@@ -31,7 +31,7 @@
     "format-alt": "{time} {icon}",
     "format-icons": ["", "", "", "", ""],
   },
-  "blacklight": {
+  "backlight": {
     "tooltip": false,
     "format": " {}%",
     "interval": 1,
