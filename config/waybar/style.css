@@ -116,7 +116,6 @@ tooltip {
   color: @foam;
   border-radius: 10px 10px 10px 10px;
   margin-right: 10px;
-  font-size: 24px;
 }
 
 #memory {
